@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Terms of Service — Forge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:  #08080A;
+  --bg:     #E8EAF0;
+  --green:  #1ACC8C;
+  --blue:   #408CFF;
+  --purple: #9959FF;
+  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--black); background: #fff; overflow-x: hidden; }
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 64px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 48px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: background 300ms var(--ease);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 9px;
+  text-decoration: none; font-size: 19px; font-weight: 700;
+  letter-spacing: -0.4px; color: var(--black);
+}
+.nav-logo img { height: 26px; width: 26px; border-radius: 7px; object-fit: cover; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a {
+  color: rgba(0,0,0,0.65); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  transition: color 200ms ease, opacity 200ms ease;
+}
+.nav-links a:hover { opacity: 0.6; }
+.nav-links a.active { color: var(--black); font-weight: 600; }
+.nav-links .download-btn {
+  background: var(--black); color: #fff;
+  padding: 9px 18px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  border: 1px solid transparent;
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
+.mobile-menu {
+  display: none; position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(20px);
+  padding: 20px 32px; flex-direction: column; gap: 16px;
+  z-index: 999; border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 15px; color: var(--black); text-decoration: none; font-weight: 500; }
+.page-wrap { max-width: 800px; margin: 0 auto; padding: 120px 48px 100px; }
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.page-title { font-family: 'DM Serif Display', serif; font-size: clamp(40px, 6vw, 68px); color: var(--black); letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 32px; }
+.page-intro { font-size: 18px; color: rgba(0,0,0,0.5); line-height: 1.7; max-width: 620px; margin-bottom: 64px; border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 64px; }
+.content-section { margin-bottom: 56px; }
+.content-section h2 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--black); letter-spacing: -0.4px; margin-bottom: 16px; }
+.content-section h3 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; margin-top: 24px; }
+.content-section p { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.8; margin-bottom: 14px; }
+.content-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0 14px 0; }
+.content-section ul li { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.7; padding-left: 20px; position: relative; }
+.content-section ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+.principle-list { display: flex; flex-direction: column; gap: 48px; margin-top: 8px; }
+.principle-item { display: grid; grid-template-columns: 40px 1fr; gap: 24px; align-items: start; }
+.principle-num { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: rgba(0,0,0,0.18); padding-top: 5px; text-transform: uppercase; }
+.principle-item h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--black); margin-bottom: 10px; margin-top: 0; letter-spacing: -0.3px; font-weight: 400; }
+.principle-item p { font-size: 15px; color: rgba(0,0,0,0.48); line-height: 1.75; margin: 0; }
+.site-footer { background: var(--black); color: #fff; border-radius: 24px; margin: 16px; padding: 36px 52px; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: rgba(255,255,255,0.35); }
+.footer-legal { font-size: 13px; color: rgba(255,255,255,0.3); display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-legal a { color: inherit; text-decoration: none; transition: color 200ms ease; }
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+.fade-up { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+.js-animate .fade-up { opacity: 0; transform: translateY(24px); }
+.fade-up.visible { opacity: 1; transform: none; }
+.fade-up:nth-child(2) { transition-delay: 80ms; }
+.fade-up:nth-child(3) { transition-delay: 160ms; }
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .page-wrap { padding: 96px 24px 72px; }
+  .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; margin: 8px; border-radius: 18px; }
+  .principle-item { grid-template-columns: 1fr; gap: 8px; }
+  .principle-num { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" class="light">
+  <a href="forge-landing.html" class="nav-logo">
+    <span>Forge</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="forge-landing.html#pricing">Pricing</a></li>
+    <li><a href="forge-landing.html#download" class="download-btn">Download App</a></li>
+  </ul>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about.html">About</a>
+  <a href="forge-landing.html#pricing">Pricing</a>
+  <a href="forge-landing.html#download">Download App</a>
+</div>
+
+<main>
+  <div class="page-wrap">
+    <div class="page-eyebrow fade-up">Legal</div>
+    <h1 class="page-title fade-up">Terms of Service</h1>
+    <p class="page-intro fade-up">These Terms of Service govern your use of the Forge mobile application, operated by 4BEES HEALTH LIMITED. By downloading or using Forge, you agree to these Terms. Effective date: 27 February 2026.</p>
+
+<div class="content-section fade-up">
+  <h2>1. Description of Service</h2>
+  <p>Forge is a personal discipline tracking application designed to help users monitor habits, exercise, movement, mood, and behavioural consistency.</p>
+  <p>The Service is for informational and self-development purposes only. It does not provide medical, psychological, or professional advice.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>2. Eligibility</h2>
+  <p>You must be at least 13 years old (or the legal minimum age in your jurisdiction) to use the Service.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>3. User Accounts</h2>
+  <p>You are responsible for maintaining the confidentiality of your login credentials. You may delete your account at any time using the in-app "Delete Account" feature.</p>
+  <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>4. Subscriptions and Payments</h2>
+  <p>Subscriptions are processed exclusively through Apple's in-app purchase system. Payment will be charged to your Apple ID account upon confirmation of purchase.</p>
+  <p>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You may manage or cancel subscriptions via your Apple ID settings at any time.</p>
+  <p>We do not store payment information.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>5. Apple Licensed Application Terms</h2>
+  <p>This agreement is between you and 4BEES HEALTH LIMITED, not Apple. Apple is not responsible for the Service or its content. Apple has no obligation to provide maintenance or support for the Service.</p>
+  <p>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>6. Acceptable Use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Use the Service for unlawful purposes</li>
+    <li>Attempt to reverse engineer or tamper with the app</li>
+    <li>Interfere with security features</li>
+    <li>Attempt unauthorised access to backend systems</li>
+  </ul>
+</div>
+
+<div class="content-section fade-up">
+  <h2>7. Intellectual Property</h2>
+  <p>All content, branding, scoring systems, analytics models, and software are the property of 4BEES HEALTH LIMITED.</p>
+  <p>You are granted a limited, non-transferable, non-exclusive licence for personal use of the Service.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>8. Disclaimer of Warranties</h2>
+  <p>The Service is provided "as is" and "as available." We disclaim all warranties to the maximum extent permitted by law.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>9. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by law, 4BEES HEALTH LIMITED shall not be liable for indirect, incidental, or consequential damages arising from your use of the Service.</p>
+  <p>Total liability shall not exceed the amount paid by you in the previous twelve (12) months.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>10. Termination</h2>
+  <p>We may suspend or terminate access if these Terms are violated. You may stop using the Service at any time. Deleting your account through the app terminates your account.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>11. Governing Law</h2>
+  <p>These Terms are governed by the laws of the United Kingdom. Disputes shall be subject to the exclusive jurisdiction of the courts of the United Kingdom.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>12. Contact</h2>
+  <p>For questions regarding these Terms, contact us at <a href="/cdn-cgi/l/email-protection#5d1c393034331d693f38382e35383c312935733e3230" style="color:var(--green);text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="d998bdb4b0b799edbbbcbcaab1bcb8b5adb1f7bab6b4">[email&#160;protected]</span></a></p>
+</div>
+
+  </div>
+</main>
+
+<div style="height:64px"></div>
+<footer class="site-footer">
+  <div class="footer-brand">Forge</div>
+  <div class="footer-legal">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="#">Contact</a>
+    <span>© 2025 Forge Inc.</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function updateNav() {
+  nav.className = 'light';
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+document.body.classList.add("js-animate");
+const observer = new IntersectionObserver(entries => {
+  en
