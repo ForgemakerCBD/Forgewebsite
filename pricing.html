@@ -285,10 +285,10 @@ nav {
   color: var(--black); letter-spacing: -1px; line-height: 1.1; margin-bottom: 14px;
 }
 .pricing-sub { font-size: 15px; color: rgba(0,0,0,0.45); max-width: 480px; margin: 0 auto; line-height: 1.6; }
-.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 780px; margin: 0 auto; }
 .pricing-card { border-radius: 20px; overflow: hidden; }
 .pricing-card.founders { background: var(--black); padding: 36px 32px; color: #fff; }
-.pricing-card.standard { background: #f7f7f8; border: 1px solid rgba(0,0,0,0.07); padding: 36px 32px; }
+.pricing-card.standard { background: var(--black); padding: 36px 32px; color: #fff; }
 .founders-badge {
   display: inline-flex; align-items: center; gap: 6px;
   background: rgba(212,168,39,0.12); border: 1px solid rgba(212,168,39,0.25);
@@ -299,23 +299,24 @@ nav {
 .founders-badge::before { content: '★'; font-size: 10px; }
 .standard-badge {
   display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(212,168,39,0.12); border: 1px solid rgba(212,168,39,0.25);
   border-radius: 20px; padding: 5px 12px;
   font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(0,0,0,0.45); margin-bottom: 20px;
+  color: #d4a827; margin-bottom: 20px;
 }
+.standard-badge::before { content: '★'; font-size: 10px; }
 .card-title { font-family: 'DM Serif Display', serif; font-size: 24px; letter-spacing: -0.5px; margin-bottom: 8px; }
 .founders .card-title { color: #fff; }
-.standard .card-title { color: var(--black); }
+.standard .card-title { color: #fff; }
 .card-subtitle { font-size: 13px; line-height: 1.5; margin-bottom: 28px; }
 .founders .card-subtitle { color: rgba(255,255,255,0.45); }
-.standard .card-subtitle { color: rgba(0,0,0,0.4); }
+.standard .card-subtitle { color: rgba(255,255,255,0.45); }
 
 .billing-tabs {
   display: flex; gap: 4px; border-radius: 12px; padding: 4px; margin-bottom: 24px;
 }
 .founders .billing-tabs { background: rgba(255,255,255,0.07); }
-.standard .billing-tabs { background: rgba(0,0,0,0.05); }
+.standard .billing-tabs { background: rgba(255,255,255,0.07); }
 .billing-tab {
   flex: 1; padding: 8px 4px; text-align: center;
   font-size: 12px; font-weight: 600; border-radius: 8px; cursor: pointer;
@@ -323,8 +324,8 @@ nav {
 }
 .founders .billing-tab { color: rgba(255,255,255,0.42); }
 .founders .billing-tab.active { background: rgba(255,255,255,0.12); color: #fff; }
-.standard .billing-tab { color: rgba(0,0,0,0.38); }
-.standard .billing-tab.active { background: rgba(0,0,0,0.08); color: var(--black); }
+.standard .billing-tab { color: rgba(255,255,255,0.42); }
+.standard .billing-tab.active { background: rgba(255,255,255,0.12); color: #fff; }
 
 .price-display { margin-bottom: 24px; min-height: 80px; }
 .price-main {
@@ -332,7 +333,7 @@ nav {
   font-weight: 200; letter-spacing: -2px; line-height: 1;
 }
 .founders .price-main { color: #fff; }
-.standard .price-main { color: var(--black); }
+.standard .price-main { color: #fff; }
 .price-currency { font-size: 22px; font-weight: 400; margin-top: 8px; }
 .price-amount { font-size: 52px; transition: opacity 200ms ease, transform 200ms var(--ease); }
 .price-period {
@@ -340,7 +341,7 @@ nav {
   align-self: flex-end; margin-bottom: 6px;
 }
 .founders .price-period { color: rgba(255,255,255,0.4); }
-.standard .price-period { color: rgba(0,0,0,0.35); }
+.standard .price-period { color: rgba(255,255,255,0.4); }
 .price-meta { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; min-height: 26px; }
 .price-tag {
   font-size: 11px; font-weight: 600;
@@ -357,7 +358,7 @@ nav {
   font-size: 13px; line-height: 1.45;
 }
 .founders .feature-list li { color: rgba(255,255,255,0.7); }
-.standard .feature-list li { color: rgba(0,0,0,0.6); }
+.standard .feature-list li { color: rgba(255,255,255,0.7); }
 .feature-list li::before {
   content: '';
   width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
@@ -374,7 +375,7 @@ nav {
   background-size: 200% auto; color: #3a2800;
   animation: goldSheen 3s linear infinite;
 }
-.standard .pricing-cta { background: var(--black); color: #fff; }
+.standard .pricing-cta { background: linear-gradient(135deg,#d4a827 0%,#f5d97a 50%,#d4a827 100%); background-size: 200% auto; color: #3a2800; animation: goldSheen 3s linear infinite; }
 
 
 .pricing-card.free {
@@ -414,7 +415,7 @@ nav {
 .free-cta:hover { background: rgba(0,0,0,0.1); }
 
 /* 3-column pricing layout */
-.pricing-grid { grid-template-columns: 1fr 1fr 1fr; gap: 14px; max-width: 1100px; }
+.pricing-grid { grid-template-columns: 1fr 1fr; gap: 16px; max-width: 780px; }
 
 /* ── Affiliate dark redesign ── */
 .affiliate-layout {
@@ -486,6 +487,10 @@ nav {
   .pricing-grid      { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
 }
 
+@keyframes goldSheen {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
 </style>
 </head>
 <body>
