@@ -124,94 +124,134 @@ nav {
   <div class="page-wrap">
     <div class="page-eyebrow fade-up">Legal</div>
     <h1 class="page-title fade-up">Privacy Policy</h1>
-    <p class="page-intro fade-up">This policy describes how 4BEES HEALTH LIMITED collects, uses, and protects your information when you use the Forge app. By using the Service, you agree to this Privacy Policy. Effective date: 27 February 2026.</p>
+    <p class="page-intro fade-up">This policy describes how 4BEES HEALTH LIMITED collects, uses, and protects your information when you use the Forge app. Forge is built on a strict local-first data model: your behavioural data never leaves your device. By using the Service, you agree to this Privacy Policy. Effective date: 27 February 2026.</p>
 
 <div class="content-section fade-up">
   <h2>1. Information We Collect</h2>
-  <h3>A. Information Stored Locally on Your Device</h3>
-  <p>Forge uses a local-first data model. The following data is stored locally on your device and is not transmitted to our servers:</p>
+
+  <h3>A. Health &amp; Fitness Data (Apple HealthKit)</h3>
+  <p>With your explicit permission, Forge reads your step count from Apple HealthKit. Step data is used to calculate discipline scores, daily activity metrics, and 14-day rolling averages. Background delivery is enabled so the app can respond to new step updates.</p>
+  <p>Forge does not write any data to HealthKit, and no HealthKit data ever leaves your device. You can revoke this permission at any time via iOS Settings → Health → Data Access &amp; Devices → Forge.</p>
+
+  <h3>B. User-Created Content (Stored Locally Only)</h3>
   <ul>
-    <li>Habit tracking data</li>
-    <li>Exercise and step tracking data</li>
-    <li>Mood and behavioural inputs</li>
-    <li>Performance scores and analytics</li>
-    <li>App usage preferences</li>
+    <li>Habit data: name, description, icon, category (Body / Mind / Discipline), type (good or bad), tracking style (simple, count, duration, or quality), target values, daily completion logs, and streaks.</li>
+    <li>Exercise and workout data: workout type (strength, running, cycling, swimming, yoga, HIIT, walking, custom), planned exercises, sets, reps, weight, distance, duration, notes, strain rating, and weekly plan.</li>
+    <li>Mood data: daily mood level (Very Low through Excellent), synonym selection, and weighted numeric score (-2.0 to +2.0).</li>
+    <li>Discipline scores: daily composite score (0–100) with exercise, habit, and mood components.</li>
   </ul>
-  <h3>B. Account Information</h3>
-  <p>If you create an account, we collect your email address and encrypted (hashed) authentication credentials. Authentication data is hashed before transmission and stored securely via Supabase infrastructure. We do not store plain-text passwords.</p>
-  <h3>C. Health Data</h3>
-  <p>If you grant permission, Forge may access step count data through Apple HealthKit. Health data is processed locally on your device and is not transmitted to our servers.</p>
-  <h3>D. Diagnostic Data</h3>
-  <p>We may collect limited diagnostic information such as crash logs and performance analytics to improve app stability.</p>
-</div>
 
-<div class="content-section fade-up">
-  <h2>2. How We Use Information</h2>
-  <p>We use collected information solely to:</p>
+  <h3>C. Derived Analytics (Computed Locally)</h3>
+  <p>Forge computes analytics on-device from your own data. These include habit consistency metrics, clean and slip rates, exercise completion rates, mood trends (per-weekday and 7/30/90-day averages), behavioural insights ("willpower leak" analysis, "relapse gap" analysis, "movement floor" correlation, "iron days," "laurel days," "apex days"), mood momentum, virtue trajectory, consistency scores, and step-count correlations with mood and discipline.</p>
+
+  <h3>D. App State and Device Data</h3>
   <ul>
-    <li>Provide and maintain the Service</li>
-    <li>Authenticate user accounts</li>
-    <li>Improve functionality and stability</li>
-    <li>Enable subscription features</li>
-    <li>Ensure security and prevent misuse</li>
+    <li>Onboarding completion flag (a single boolean).</li>
+    <li>Subscription status (active or inactive), stored locally.</li>
+    <li>Promotional code validation: codes are stored only as a SHA-256 hash, never in plaintext.</li>
+    <li>A random device UUID, generated once on install. This identifier is not linked to your Apple ID or any personal identity and is reserved for potential future aggregate analytics.</li>
+    <li>App version and install date.</li>
   </ul>
-  <p>We do not sell personal data. We do not use data for advertising purposes.</p>
-</div>
 
-<div class="content-section fade-up">
-  <h2>3. Data Storage and Security</h2>
-  <p>Behavioural tracking data remains stored locally on your device. Account authentication data is securely stored using industry-standard encryption and hashing methods. You are responsible for maintaining the security of your device.</p>
-</div>
-
-<div class="content-section fade-up">
-  <h2>4. Account Deletion</h2>
-  <p>You may delete your account at any time using the in-app "Delete Account" feature. When you delete your account:</p>
+  <h3>E. Information We Do Not Collect</h3>
   <ul>
-    <li>Authentication records are permanently removed from our backend database</li>
-    <li>Local data remains on your device until the app is uninstalled</li>
-    <li>Uninstalling the app removes locally stored data unless backed up by your device system</li>
+    <li>No name, email address, phone number, age, birthday, or gender.</li>
+    <li>No location or GPS data.</li>
+    <li>No Apple ID or advertising identifier (IDFA).</li>
+    <li>No social media profiles, photos, contacts, microphone, or camera data.</li>
+    <li>No tracking for advertising purposes. The app's privacy manifest declares <code>NSPrivacyTracking = false</code>.</li>
   </ul>
-  <p>No manual contact is required to delete your account.</p>
 </div>
 
 <div class="content-section fade-up">
-  <h2>5. Subscriptions and Payments</h2>
-  <p>All subscription payments are processed through Apple's in-app purchase system. We do not collect or store payment information. Subscriptions automatically renew unless cancelled through your Apple ID settings.</p>
+  <h2>2. How We Store Your Data</h2>
+
+  <h3>A. Storage Mechanisms</h3>
+  <ul>
+    <li>Core Data (SQLite): the primary local database, held inside the app's sandboxed Application Support directory.</li>
+    <li>JSON mirror files: human-readable copies organised by category (habits, exercises, moods, discipline, analytics).</li>
+    <li>UserDefaults: used only for subscription status, the onboarding flag, and the random device UUID.</li>
+  </ul>
+  <p>All data is sandboxed within the iOS app container and protected by iOS filesystem encryption.</p>
+
+  <h3>B. Data Retention</h3>
+  <p>Your data remains on your device indefinitely until you delete it. There is no automatic purging or expiration, and because there is no server-side storage, there is no server-side retention policy. Deleted habits are archived on-device with their deletion reason, deactivation date, and reactivation count so that long-term analytics remain continuous.</p>
+
+  <h3>C. Data Security</h3>
+  <p>Forge relies on iOS filesystem encryption (applied automatically to sandboxed apps), SHA-256 hashing for sensitive values such as promotional codes, and in-memory caching protected by locks. No plaintext passwords, API keys, or tokens are stored, because the app does not use any.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>3. Third-Party Services</h2>
+
+  <h3>A. Apple HealthKit</h3>
+  <p>Used to read step count data (read-only) for discipline scoring and activity analytics. Managed via iOS Settings → Health → Forge. In line with Apple's HealthKit policy, HealthKit data is never shared with third parties, never used for advertising, and never transmitted off your device.</p>
+
+  <h3>B. Apple StoreKit 2 (In-App Purchases)</h3>
+  <p>Used to manage premium subscriptions. Transaction verification happens through Apple's infrastructure only. Subscriptions are managed via iOS Settings → Apple ID → Subscriptions.</p>
+
+  <h3>C. Apple UserNotifications (Local Only)</h3>
+  <p>Used to schedule local notifications for reminders and insights. There is no remote notification server — all notifications are generated and scheduled on-device from your own data. Managed via iOS Settings → Notifications → Forge.</p>
+
+  <h3>D. No Other Third-Party Services</h3>
+  <p>Forge does not integrate Firebase, Google Analytics, Mixpanel, Amplitude, Segment, AppsFlyer, the Facebook SDK, or any other external analytics provider. There is no iCloud, CloudKit, or third-party backend integration, and no tracking domains are declared in the app's privacy manifest.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>4. Data Sharing and Transmission</h2>
+  <p>No behavioural, health, or analytics data is transmitted to external servers at any time. The only network communication the app performs is with Apple's servers for subscription verification via StoreKit 2, which is encrypted and managed entirely by Apple. All analytics are computed locally on your device, and there is no cloud backup or sync functionality. We do not share your data with any third parties.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>5. Data Export and Your Rights</h2>
+
+  <h3>A. Data Export</h3>
+  <p>Settings → Export Data generates a human-readable JSON file containing your active and archived habit definitions and logs, exercise logs, mood logs (with synonyms and weighted scores), discipline score history, and an analytics summary (streaks, completion rates), along with schema version, export timestamp, and app version. The file is shared via the iOS share sheet, so you choose the destination. Export only happens when you request it.</p>
+
+  <h3>B. Data Deletion</h3>
+  <p>You can delete individual habits, logs, and workouts at any time from within the app. Uninstalling Forge removes all locally stored data. Because no data is held on our servers, there is no server-side data to request deletion of.</p>
+
+  <h3>C. Data Access</h3>
+  <p>All data collected by the app is directly viewable within the app's dashboard, analytics, and history screens, and a full export is available as described above.</p>
 </div>
 
 <div class="content-section fade-up">
   <h2>6. Children's Privacy</h2>
-  <p>Forge is not intended for children under the age of 13. We do not knowingly collect personal information from children.</p>
+  <p>Forge is not intended for children under the age of 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect data from children. The app collects no age information, so parental guidance is recommended. If you believe a child has used the app, please contact us and we will assist as appropriate.</p>
 </div>
 
 <div class="content-section fade-up">
-  <h2>7. Third-Party Services</h2>
-  <p>We use secure backend infrastructure (Supabase) solely for authentication storage. We do not share behavioural tracking data with third parties.</p>
-</div>
-
-<div class="content-section fade-up">
-  <h2>8. Data Retention</h2>
-  <p>Authentication data is retained only while your account is active. Upon deletion of your account, authentication data is permanently removed.</p>
-</div>
-
-<div class="content-section fade-up">
-  <h2>9. Your Rights</h2>
-  <p>You have the right to:</p>
+  <h2>7. Apple Privacy Manifest Disclosures</h2>
   <ul>
-    <li>Access your account information</li>
-    <li>Delete your account at any time within the app</li>
-    <li>Withdraw HealthKit permissions through your device settings</li>
+    <li>Collected data type: Health &amp; Fitness (step count only).</li>
+    <li>Purpose: app functionality only.</li>
+    <li>Not linked to your identity.</li>
+    <li>Not used for tracking.</li>
+    <li>Accessed API: UserDefaults, declared under reason code CA92.1.</li>
   </ul>
 </div>
 
 <div class="content-section fade-up">
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. Continued use of the Service constitutes acceptance of any updates.</p>
+  <h2>8. Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li>Access all of your data directly within the app.</li>
+    <li>Export your data as a JSON file at any time.</li>
+    <li>Delete your data by removing individual entries or uninstalling the app.</li>
+    <li>Revoke HealthKit permissions at any time via iOS Settings.</li>
+    <li>Manage or cancel subscriptions via iOS Settings → Apple ID → Subscriptions.</li>
+  </ul>
+  <p>Because Forge is local-first and collects no personal identifiers, rights under GDPR (such as data portability) and CCPA (such as the right not to have personal information sold) are structurally satisfied: we hold no personal data on our servers, and we never sell data.</p>
 </div>
 
 <div class="content-section fade-up">
-  <h2>11. Contact</h2>
-  <p>For privacy-related enquiries, please contact us at <a href="/cdn-cgi/l/email-protection#6e2f0a0307002e5a0c0b0b1d060b0f021a06400d0103" style="color:var(--green);text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="5110353c383f1165333434223934303d25397f323e3c">[email&#160;protected]</span></a></p>
+  <h2>9. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Material changes will be communicated through an app update or an in-app notice. The effective date at the top of this page will always reflect the most recent version. Continued use of the Service after an update constitutes acceptance of the revised policy.</p>
+</div>
+
+<div class="content-section fade-up">
+  <h2>10. Contact</h2>
+  <p>For privacy-related enquiries, please contact us at <a href="/cdn-cgi/l/email-protection#6e2f0a0307002e5a0c0b0b1d060b0f021a06400d0103" style="color:var(--green);text-decoration:none;font-weight:500"><span class="__cf_email__" data-cfemail="5110353c383f1165333434223934303d25397f323e3c">[email&#160;protected]</span></a>.</p>
 </div>
 
   </div>
@@ -228,7 +268,8 @@ nav {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 const nav = document.getElementById('nav');
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -253,4 +294,14 @@ document.querySelectorAll('.mobile-menu a').forEach(a => {
 });
 document.body.classList.add("js-animate");
 const observer = new IntersectionObserver(entries => {
-  en
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
