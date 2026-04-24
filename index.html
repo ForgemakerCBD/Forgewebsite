@@ -938,13 +938,41 @@ footer {
   .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
   .roadmap-grid { grid-template-columns: 1fr 1fr; }
 }
+.hero-mobile-cta { display: none; }
+
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .ring-container { width: 280px; height: 280px; }
   #ringGroup { width: 260px; height: 260px; }
-  #laurelImg { width: 200px !important; height: 200px !important; }
+  #laurelImg {
+    width: 240px !important; height: 240px !important;
+    transform: translateY(-28px);
+  }
+  .hero-mobile-cta {
+    display: flex; gap: 10px; margin-top: 22px;
+    pointer-events: auto;
+  }
+  .hero-mobile-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 11px 22px; border-radius: 999px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2px;
+    text-decoration: none;
+    transition: opacity 200ms ease, background 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+  .hero-mobile-btn.primary {
+    background: #fff; color: #0B0B0E;
+  }
+  .hero-mobile-btn.primary:hover { opacity: 0.9; }
+  .hero-mobile-btn:not(.primary) {
+    background: transparent;
+    color: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.22);
+  }
+  .hero-mobile-btn:not(.primary):hover {
+    color: #fff; border-color: rgba(255,255,255,0.5);
+  }
   .ring-logo { font-size: 26px; }
   .ring-tagline { font-size: 15px; }
   .ring-content { margin-top: 12px; gap: 6px; }
@@ -975,7 +1003,10 @@ footer {
 @media (max-width: 480px) {
   .ring-container { width: 240px; height: 240px; }
   #ringGroup { width: 220px; height: 220px; }
-  #laurelImg { width: 170px !important; height: 170px !important; }
+  #laurelImg {
+    width: 210px !important; height: 210px !important;
+    transform: translateY(-24px);
+  }
   .ring-logo { font-size: 24px; }
   .ring-tagline { font-size: 14px; }
   .phone-frame { width: 200px; height: 435px; border-radius: 36px; }
@@ -1237,6 +1268,10 @@ footer {
       <div class="ring-tagline" id="ringTagline" style="opacity:0">
         <span id="taglineText"></span>
       </div>
+      <div class="hero-mobile-cta">
+        <a href="#download" class="hero-mobile-btn primary">Download</a>
+        <a href="about.html" class="hero-mobile-btn">About</a>
+      </div>
     </div>
   </div>
   <div class="scroll-cue" id="scrollCue">
@@ -1394,18 +1429,6 @@ footer {
   </div>
 </section>
 
-<!-- ─── ANALYTICS — single continuous dark block ─── -->
-<section id="analytics">
-  <div class="analytics-panel">
-    <p class="analytics-statement fade-up" id="stmt1">Discipline compounds.</p>
-  </div>
-  <div class="analytics-panel">
-    <p class="analytics-statement fade-up" id="stmt2">What you measure improves.</p>
-  </div>
-  <div class="analytics-panel">
-    <p class="analytics-statement fade-up" id="stmt3">Consistency becomes your identity.</p>
-  </div>
-</section>
 
 <!-- ─── POST-ANALYTICS CARDS ─── -->
 <div class="cards-zone">
