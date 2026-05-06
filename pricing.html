@@ -74,9 +74,9 @@ nav {
 /* HERO */
 .pricing-hero {
   padding: 80px 80px 72px;
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
+  max-width: 720px; margin: 0 auto;
+  display: flex; flex-direction: column;
+  gap: 44px;
 }
 .pricing-hero-copy {}
 .pricing-hero-eyebrow {
@@ -106,6 +106,52 @@ nav {
 }
 .pv-text h4 { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
 .pv-text p  { font-size: 13px; color: rgba(0,0,0,0.42); line-height: 1.55; margin: 0; }
+
+/* HERO PREMIUM CARD */
+.hero-price-wrap { display: flex; justify-content: center; align-items: center; }
+.hero-price-card {
+  background: #f5f5f7; border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 22px; padding: 36px 30px;
+  width: 100%; max-width: 320px; text-align: center;
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease), border-color 500ms var(--ease);
+}
+.hero-price-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px -12px rgba(0,0,0,0.10);
+  border-color: rgba(0,0,0,0.08);
+}
+.hpc-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(0,0,0,0.3);
+  margin-bottom: 16px;
+}
+.hpc-price {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 200; color: var(--black);
+  line-height: 1; letter-spacing: -2px;
+  display: inline-flex; align-items: baseline; gap: 2px;
+  margin-bottom: 14px;
+}
+.hpc-currency { font-size: 24px; font-weight: 400; align-self: flex-start; margin-top: 6px; }
+.hpc-amount   { font-size: 56px; }
+.hpc-period {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 400;
+  color: rgba(0,0,0,0.38); letter-spacing: 0;
+  margin-left: 4px; align-self: flex-end; margin-bottom: 6px;
+}
+.hpc-tagline {
+  font-size: 13px; font-weight: 600;
+  color: var(--black); letter-spacing: -0.2px;
+}
+.hpc-divider {
+  height: 1px; background: rgba(0,0,0,0.08);
+  max-width: 48px; margin: 16px auto;
+}
+.hpc-note {
+  font-size: 12px; color: rgba(0,0,0,0.4);
+  line-height: 1.6;
+}
 
 /* PRICE DEFENCE */
 .price-defence {
@@ -137,7 +183,15 @@ nav {
 }
 .defence-pillar {
   background: #fff; border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px; padding: 24px 20px;
+  border-radius: 18px; padding: 28px 24px;
+  aspect-ratio: 1 / 1;
+  display: flex; flex-direction: column; justify-content: center;
+  transition: transform 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
+}
+.defence-pillar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -16px rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.1);
 }
 .dp-num {
   font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
@@ -472,19 +526,86 @@ nav {
 }
 /* Responsive */
 @media (max-width: 1024px) {
-  .pricing-hero      { grid-template-columns: 1fr; padding: 60px 48px; gap: 48px; }
+  .pricing-hero      { padding: 60px 48px; gap: 40px; }
   .founders-spotlight-inner { grid-template-columns: 1fr; gap: 52px; }
   .defence-pillars   { grid-template-columns: 1fr; }
   .price-defence     { padding: 56px 40px; }
   .founders-spotlight { padding: 80px 40px; }
   .plans-section     { padding: 72px 40px; }
+  .affiliate-layout  { grid-template-columns: 1fr; padding: 56px 40px; gap: 40px; }
 }
-@media (max-width: 680px) {
-  .pricing-hero      { padding: 40px 24px; }
-  .price-defence     { padding: 48px 24px; }
-  .founders-spotlight { padding: 64px 24px; }
-  .plans-section     { padding: 56px 24px; }
-  .pricing-grid      { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+@media (max-width: 768px) {
+  .pricing-page      { padding-top: 64px; }
+
+  /* HERO — generous breathing room, card becomes flush with copy width */
+  .pricing-hero      { padding: 64px 24px 56px; gap: 40px; max-width: 520px; }
+  .pricing-hero-eyebrow { margin-bottom: 14px; }
+  .pricing-hero-headline { letter-spacing: -1px; }
+  .pricing-hero-sub  { font-size: 16px; line-height: 1.7; max-width: none; }
+  .pricing-value-list { margin-top: 32px; gap: 16px; }
+  .pv-text h4        { font-size: 14px; }
+  .pv-text p         { font-size: 13px; line-height: 1.6; }
+  .hero-price-card   { max-width: 340px; padding: 40px 32px; }
+  .hpc-amount        { font-size: 60px; }
+
+  /* DEFENCE — stacked squares */
+  .price-defence     { padding: 72px 24px; }
+  .defence-sub       { font-size: 15px; line-height: 1.75; margin-bottom: 40px; }
+  .defence-pillars   { grid-template-columns: 1fr; gap: 14px; max-width: 320px; margin: 0 auto; }
+  .defence-pillar    { aspect-ratio: 1 / 1; padding: 28px 24px; border-radius: 18px; }
+  .dp-title          { font-size: 16px; margin-bottom: 10px; }
+  .dp-body           { font-size: 13.5px; line-height: 1.65; }
+
+  /* FOUNDERS SPOTLIGHT (if present) */
+  .founders-spotlight { padding: 80px 24px; }
+  .founders-spotlight-inner { gap: 48px; }
+  .fs-sub            { font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
+  .fs-perks          { margin-bottom: 36px; gap: 16px; }
+  .fs-pricing-card   { padding: 32px 26px; border-radius: 20px; }
+  .fs-amount         { font-size: 56px; letter-spacing: -2px; }
+  .fs-cta            { width: 100%; justify-content: center; padding: 16px 22px; }
+
+  /* PLANS */
+  .plans-section     { padding: 72px 24px; }
+  .plans-header      { margin-bottom: 40px; }
+  .plans-sub         { font-size: 14.5px; line-height: 1.7; }
+  .pricing-grid      { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; gap: 16px; }
+  .pricing-card.founders,
+  .pricing-card.standard,
+  .pricing-card.free { padding: 32px 28px; border-radius: 22px; }
+  .card-title        { font-size: 22px; margin-bottom: 10px; }
+  .card-subtitle     { font-size: 13px; line-height: 1.6; margin-bottom: 26px; }
+  .price-display     { margin-bottom: 26px; min-height: auto; }
+  .price-amount      { font-size: 48px; }
+  .feature-list      { gap: 12px; margin-bottom: 28px; }
+  .feature-list li   { font-size: 13px; line-height: 1.55; }
+  .billing-tabs      { padding: 4px; margin-bottom: 22px; }
+  .billing-tab       { font-size: 11.5px; padding: 9px 4px; letter-spacing: 0; }
+  .pricing-cta       { padding: 15px; font-size: 14px; }
+
+  /* AFFILIATE (if present) */
+  .aff-stat-row      { gap: 0; }
+  .aff-stat          { padding: 22px 20px; }
+  .aff-stat-val      { font-size: 24px; }
+  .btn-affiliate     { width: 100%; justify-content: center; }
+}
+@media (max-width: 420px) {
+  .pricing-hero      { padding: 56px 18px 48px; gap: 44px; }
+  .hero-price-card   { max-width: 300px; padding: 36px 28px; }
+  .hpc-amount        { font-size: 52px; }
+  .price-defence     { padding: 56px 18px; }
+  .defence-pillars   { max-width: 280px; }
+  .defence-pillar    { padding: 24px 22px; }
+  .founders-spotlight { padding: 64px 18px; }
+  .plans-section     { padding: 56px 18px; }
+  .pricing-card.founders,
+  .pricing-card.standard,
+  .pricing-card.free { padding: 28px 22px; }
+  .price-amount      { font-size: 44px; }
+  .fs-pricing-card   { padding: 28px 22px; }
+  .fs-amount         { font-size: 48px; letter-spacing: -1.5px; }
+  .aff-stat-row      { flex-wrap: wrap; }
+  .aff-stat          { flex: 1 0 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
 }
 
 @keyframes goldSheen {
@@ -506,13 +627,13 @@ nav {
   <ul class="nav-links">
     <li><a href="pricing.html" class="active">Pricing</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#download" class="download-btn">Download App</a></li>
+    <li><a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" class="download-btn" target="_blank" rel="noopener">Download App</a></li>
   </ul>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="pricing.html">Pricing</a>
   <a href="about.html">About</a>
-  <a href="index.html#download">Download App</a>
+  <a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">Download App</a>
 </div>
 
 <main class="pricing-page">
@@ -553,16 +674,16 @@ nav {
         </div>
       </div>
     </div>
-    <div class="fade-up" style="display:flex;justify-content:center;align-items:center">
-      <div style="position:relative;width:280px">
-        <div style="background:#f5f5f7;border-radius:20px;padding:28px 24px;text-align:center">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.25);margin-bottom:8px">Premium</div>
-          <div style="font-family:'DM Serif Display',serif;font-size:52px;font-weight:200;letter-spacing:-2px;color:var(--black);line-height:1">
-            <span class="price-currency free-currency">£</span>6.99
-          </div>
-          <div style="font-size:13px;color:rgba(0,0,0,0.3);margin-bottom:16px">/month</div>
-          <div style="font-size:12px;color:rgba(0,0,0,0.35);line-height:1.6">All features, forever included<br>as the platform grows.</div>
+    <div class="fade-up hero-price-wrap">
+      <div class="hero-price-card">
+        <div class="hpc-eyebrow">Premium</div>
+        <div class="hpc-price">
+          <span class="hpc-currency">£</span><span class="hpc-amount">6.99</span>
+          <span class="hpc-period">/month</span>
         </div>
+        <div class="hpc-tagline">One price. Everything included.</div>
+        <div class="hpc-divider"></div>
+        <div class="hpc-note">All features, forever included<br>as the platform grows.</div>
       </div>
     </div>
   </section>
@@ -620,7 +741,7 @@ nav {
           <li>Discipline, habit &amp; exercise scores</li>
           <li>Weekly, monthly &amp; yearly views</li>
         </ul>
-        <a href="#" class="pricing-cta free-cta">Download Free</a>
+        <a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" class="pricing-cta free-cta" target="_blank" rel="noopener">Download Free</a>
       </div>
       <!-- Standard -->
       <div class="pricing-card standard">
