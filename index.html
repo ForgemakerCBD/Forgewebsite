@@ -376,8 +376,9 @@ nav.light .hamburger span { background: var(--black); }
 }
 
 .phone-frame {
+  /* Aspect locked to screenshot dimensions (647×1400 ≈ 1:2.164) */
   width: 268px;
-  height: 583px;
+  height: 580px;
   background: #000;
   border-radius: 52px;
   position: relative;
@@ -421,8 +422,7 @@ nav.light .hamburger span { background: var(--black); }
 .slide-screenshot {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* preserve aspect; tiny side crop is fine */
-  object-position: center top;
+  object-fit: fill;  /* frame aspect matches screenshot 647:1400, exact 1:1 fit */
   display: block;
 }
 
@@ -917,7 +917,7 @@ footer {
   .pricing-grid { max-width: 100%; }
   .pricing-card.standard { padding: 28px 20px; }
   .download-headline { font-size: clamp(32px, 8vw, 56px); }
-  .phone-frame { width: 230px; height: 500px; border-radius: 46px; }
+  .phone-frame { width: 230px; height: 498px; border-radius: 46px; }
   .slide-nav { gap: 14px; margin-top: 20px; }
 }
 
@@ -930,7 +930,7 @@ footer {
   }
   .ring-logo { font-size: 24px; }
   .ring-tagline { font-size: 14px; }
-  .phone-frame { width: 200px; height: 435px; border-radius: 40px; }
+  .phone-frame { width: 200px; height: 433px; border-radius: 40px; }
   .phone-frame::before { width: 88px; height: 22px; top: 10px; }
 }
 
