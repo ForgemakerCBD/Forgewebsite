@@ -1,133 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Privacy Policy — Forge</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Forge</title>
+<meta name="description" content="How Forge handles your data: local-first, no account, no ad tracking.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --black:  #08080A;
-  --bg:     #E8EAF0;
-  --green:  #1ACC8C;
-  --blue:   #408CFF;
-  --purple: #9959FF;
-  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; color: var(--black); background: #fff; overflow-x: hidden; }
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: 64px; display: flex; align-items: center;
-  justify-content: space-between; padding: 0 48px;
-  z-index: 1000;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  transition: background 300ms var(--ease);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 9px;
-  text-decoration: none; font-size: 19px; font-weight: 700;
-  letter-spacing: -0.4px; color: var(--black);
-}
-.nav-logo img { height: 26px; width: 26px; border-radius: 7px; object-fit: cover; }
-.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-.nav-links a {
-  color: rgba(0,0,0,0.65); text-decoration: none;
-  font-size: 14px; font-weight: 500;
-  transition: color 200ms ease, opacity 200ms ease;
-}
-.nav-links a:hover { opacity: 0.6; }
-.nav-links a.active { color: var(--black); font-weight: 600; }
-.nav-links .download-btn {
-  background: var(--black); color: #fff;
-  padding: 9px 18px; border-radius: 10px;
-  font-size: 13px; font-weight: 600;
-  border: 1px solid transparent;
-}
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
-.mobile-menu {
-  display: none; position: fixed;
-  top: 64px; left: 0; right: 0;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(20px);
-  padding: 20px 32px; flex-direction: column; gap: 16px;
-  z-index: 999; border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a { font-size: 15px; color: var(--black); text-decoration: none; font-weight: 500; }
-.page-wrap { max-width: 800px; margin: 0 auto; padding: 120px 48px 100px; }
-.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
-.page-title { font-family: 'DM Serif Display', serif; font-size: clamp(40px, 6vw, 68px); color: var(--black); letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 32px; }
-.page-intro { font-size: 18px; color: rgba(0,0,0,0.5); line-height: 1.7; max-width: 620px; margin-bottom: 64px; border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 64px; }
-.content-section { margin-bottom: 56px; }
-.content-section h2 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--black); letter-spacing: -0.4px; margin-bottom: 16px; }
-.content-section h3 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; margin-top: 24px; }
-.content-section p { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.8; margin-bottom: 14px; }
-.content-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0 14px 0; }
-.content-section ul li { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.7; padding-left: 20px; position: relative; }
-.content-section ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
-.principle-list { display: flex; flex-direction: column; gap: 48px; margin-top: 8px; }
-.principle-item { display: grid; grid-template-columns: 40px 1fr; gap: 24px; align-items: start; }
-.principle-num { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: rgba(0,0,0,0.18); padding-top: 5px; text-transform: uppercase; }
-.principle-item h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--black); margin-bottom: 10px; margin-top: 0; letter-spacing: -0.3px; font-weight: 400; }
-.principle-item p { font-size: 15px; color: rgba(0,0,0,0.48); line-height: 1.75; margin: 0; }
-.site-footer { background: var(--black); color: #fff; border-radius: 24px; margin: 16px; padding: 36px 52px; display: flex; align-items: center; justify-content: space-between; }
-.footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: rgba(255,255,255,0.35); }
-.footer-legal { font-size: 13px; color: rgba(255,255,255,0.3); display: flex; gap: 24px; flex-wrap: wrap; }
-.footer-legal a { color: inherit; text-decoration: none; transition: color 200ms ease; }
-.footer-legal a:hover { color: rgba(255,255,255,0.7); }
-.fade-up { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
-.js-animate .fade-up { opacity: 0; transform: translateY(24px); }
-.fade-up.visible { opacity: 1; transform: none; }
-.fade-up:nth-child(2) { transition-delay: 80ms; }
-.fade-up:nth-child(3) { transition-delay: 160ms; }
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .page-wrap { padding: 96px 24px 72px; }
-  .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; margin: 8px; border-radius: 18px; }
-  .principle-item { grid-template-columns: 1fr; gap: 8px; }
-  .principle-num { display: none; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav id="nav" class="light">
-  <a href="index.html" class="nav-logo">
-    <span>Forge</span>
-  </a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" class="download-btn" target="_blank" rel="noopener">Download App</a></li>
-  </ul>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="about.html">About</a>
-  <a href="index.html#pricing">Pricing</a>
-  <a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">Download App</a>
-</div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="Forge home"><span class="brand-mark" aria-hidden="true"></span>Forge</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="nav-cta" href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Get Forge</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile">
+    <a href="index.html#how">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a class="btn-store small" href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="btn-store-text"><small>Download on the</small><strong>App Store</strong></span>
+    </a>
+  </nav>
+</header>
 
 <main>
-  <div class="page-wrap">
-    <div class="page-eyebrow fade-up">Legal</div>
-    <h1 class="page-title fade-up">Privacy Policy</h1>
-    <p class="page-intro fade-up">This policy describes how Cecil Dube, an independent developer trading as Forge ("we," "us"), collects, uses, and protects your information when you use the Forge app. Forge is built on a strict local-first data model: your behavioural data never leaves your device. By using the Service, you agree to this Privacy Policy. Effective date: 27 February 2026.</p>
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag">Legal</span>
+    <h1 class="h2">Privacy Policy</h1>
+    <p class="lede">This policy describes how Cecil Dube, an independent developer trading as Forge ("we," "us"), collects, uses, and protects your information when you use the Forge app. Forge is built on a strict local-first data model: your behavioural data never leaves your device. By using the Service, you agree to this Privacy Policy. Effective date: 27 February 2026.</p>
+  </div>
+</section>
 
-<div class="content-section fade-up">
-  <h2>1. Information We Collect</h2>
+<section class="wrap legal">
+  <aside class="legal-toc" aria-label="Contents">
+    <span class="tag">Contents</span>
+    <ol>
+        <li><a href="#1-information-we-collect">1. Information We Collect</a></li>
+        <li><a href="#2-how-we-store-your-data">2. How We Store Your Data</a></li>
+        <li><a href="#3-third-party-services">3. Third-Party Services</a></li>
+        <li><a href="#4-data-sharing-and-transmission">4. Data Sharing and Transmission</a></li>
+        <li><a href="#5-data-export-and-your-rights">5. Data Export and Your Rights</a></li>
+        <li><a href="#6-children-s-privacy">6. Children's Privacy</a></li>
+        <li><a href="#7-apple-privacy-manifest-disclosures">7. Apple Privacy Manifest Disclosures</a></li>
+        <li><a href="#8-your-rights">8. Your Rights</a></li>
+        <li><a href="#9-changes-to-this-policy">9. Changes to This Policy</a></li>
+        <li><a href="#10-contact">10. Contact</a></li>
+    </ol>
+  </aside>
+  <article class="prose">
+<div class="content-section">
+  <h2 id="1-information-we-collect">1. Information We Collect</h2>
 
   <h3>A. Health &amp; Fitness Data (Apple HealthKit)</h3>
   <p>With your explicit permission, Forge reads your step count from Apple HealthKit. Step data is used to calculate discipline scores, daily activity metrics, and 14-day rolling averages. Background delivery is enabled so the app can respond to new step updates.</p>
@@ -163,8 +101,8 @@ nav {
   </ul>
 </div>
 
-<div class="content-section fade-up">
-  <h2>2. How We Store Your Data</h2>
+<div class="content-section">
+  <h2 id="2-how-we-store-your-data">2. How We Store Your Data</h2>
 
   <h3>A. Storage Mechanisms</h3>
   <ul>
@@ -181,8 +119,8 @@ nav {
   <p>Forge relies on iOS filesystem encryption (applied automatically to sandboxed apps), SHA-256 hashing for sensitive values such as promotional codes, and in-memory caching protected by locks. No plaintext passwords, API keys, or tokens are stored, because the app does not use any.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>3. Third-Party Services</h2>
+<div class="content-section">
+  <h2 id="3-third-party-services">3. Third-Party Services</h2>
 
   <h3>A. Apple HealthKit</h3>
   <p>Used to read step count data (read-only) for discipline scoring and activity analytics. Managed via iOS Settings → Health → Forge. In line with Apple's HealthKit policy, HealthKit data is never shared with third parties, never used for advertising, and never transmitted off your device.</p>
@@ -197,13 +135,13 @@ nav {
   <p>Forge does not integrate Firebase, Google Analytics, Mixpanel, Amplitude, Segment, AppsFlyer, the Facebook SDK, or any other external analytics provider. There is no iCloud, CloudKit, or third-party backend integration, and no tracking domains are declared in the app's privacy manifest.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>4. Data Sharing and Transmission</h2>
+<div class="content-section">
+  <h2 id="4-data-sharing-and-transmission">4. Data Sharing and Transmission</h2>
   <p>No behavioural, health, or analytics data is transmitted to external servers at any time. The only network communication the app performs is with Apple's servers for subscription verification via StoreKit 2, which is encrypted and managed entirely by Apple. All analytics are computed locally on your device, and there is no cloud backup or sync functionality. We do not share your data with any third parties.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>5. Data Export and Your Rights</h2>
+<div class="content-section">
+  <h2 id="5-data-export-and-your-rights">5. Data Export and Your Rights</h2>
 
   <h3>A. Data Export</h3>
   <p>Settings → Export Data generates a human-readable JSON file containing your active and archived habit definitions and logs, exercise logs, mood logs (with synonyms and weighted scores), discipline score history, and an analytics summary (streaks, completion rates), along with schema version, export timestamp, and app version. The file is shared via the iOS share sheet, so you choose the destination. Export only happens when you request it.</p>
@@ -215,13 +153,13 @@ nav {
   <p>All data collected by the app is directly viewable within the app's dashboard, analytics, and history screens, and a full export is available as described above.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>6. Children's Privacy</h2>
+<div class="content-section">
+  <h2 id="6-children-s-privacy">6. Children's Privacy</h2>
   <p>Forge is not intended for children under the age of 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect data from children. The app collects no age information, so parental guidance is recommended. If you believe a child has used the app, please contact us and we will assist as appropriate.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>7. Apple Privacy Manifest Disclosures</h2>
+<div class="content-section">
+  <h2 id="7-apple-privacy-manifest-disclosures">7. Apple Privacy Manifest Disclosures</h2>
   <ul>
     <li>Collected data type: Health &amp; Fitness (step count only).</li>
     <li>Purpose: app functionality only.</li>
@@ -231,8 +169,8 @@ nav {
   </ul>
 </div>
 
-<div class="content-section fade-up">
-  <h2>8. Your Rights</h2>
+<div class="content-section">
+  <h2 id="8-your-rights">8. Your Rights</h2>
   <p>You have the right to:</p>
   <ul>
     <li>Access all of your data directly within the app.</li>
@@ -244,64 +182,33 @@ nav {
   <p>Because Forge is local-first and collects no personal identifiers, rights under GDPR (such as data portability) and CCPA (such as the right not to have personal information sold) are structurally satisfied: we hold no personal data on our servers, and we never sell data.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>9. Changes to This Policy</h2>
+<div class="content-section">
+  <h2 id="9-changes-to-this-policy">9. Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. Material changes will be communicated through an app update or an in-app notice. The effective date at the top of this page will always reflect the most recent version. Continued use of the Service after an update constitutes acceptance of the revised policy.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>10. Contact</h2>
+<div class="content-section">
+  <h2 id="10-contact">10. Contact</h2>
   <p>For privacy-related enquiries, please contact us at <a href="mailto:4beeshealth@gmail.com" style="color:var(--green);text-decoration:none;font-weight:500">4beeshealth@gmail.com</a>.</p>
 </div>
-
-  </div>
+  </article>
+</section>
 </main>
 
-<div style="height:64px"></div>
-<footer class="site-footer">
-  <div class="footer-brand">Forge</div>
-  <div class="footer-legal">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="#">Contact</a>
-    <span>© 2025 Forge Inc.</span>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span>Forge</a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="mailto:4beeshealth@gmail.com">Contact</a></li>
+    </ul>
+    <span>© 2026 Forge</span>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-const nav = document.getElementById('nav');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-function updateNav() {
-  nav.className = 'light';
-}
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav();
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-document.querySelectorAll('.mobile-menu a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
-document.body.classList.add("js-animate");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+<script src="site.js"></script>
 </body>
 </html>

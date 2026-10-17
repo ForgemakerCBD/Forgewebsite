@@ -1,138 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Terms of Service — Forge</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Forge</title>
+<meta name="description" content="The terms that govern your use of the Forge app.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --black:  #08080A;
-  --bg:     #E8EAF0;
-  --green:  #1ACC8C;
-  --blue:   #408CFF;
-  --purple: #9959FF;
-  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; color: var(--black); background: #fff; overflow-x: hidden; }
-nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: 64px; display: flex; align-items: center;
-  justify-content: space-between; padding: 0 48px;
-  z-index: 1000;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  transition: background 300ms var(--ease);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 9px;
-  text-decoration: none; font-size: 19px; font-weight: 700;
-  letter-spacing: -0.4px; color: var(--black);
-}
-.nav-logo img { height: 26px; width: 26px; border-radius: 7px; object-fit: cover; }
-.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-.nav-links a {
-  color: rgba(0,0,0,0.65); text-decoration: none;
-  font-size: 14px; font-weight: 500;
-  transition: color 200ms ease, opacity 200ms ease;
-}
-.nav-links a:hover { opacity: 0.6; }
-.nav-links a.active { color: var(--black); font-weight: 600; }
-.nav-links .download-btn {
-  background: var(--black); color: #fff;
-  padding: 9px 18px; border-radius: 10px;
-  font-size: 13px; font-weight: 600;
-  border: 1px solid transparent;
-}
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; }
-.mobile-menu {
-  display: none; position: fixed;
-  top: 64px; left: 0; right: 0;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(20px);
-  padding: 20px 32px; flex-direction: column; gap: 16px;
-  z-index: 999; border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a { font-size: 15px; color: var(--black); text-decoration: none; font-weight: 500; }
-.page-wrap { max-width: 800px; margin: 0 auto; padding: 120px 48px 100px; }
-.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
-.page-title { font-family: 'DM Serif Display', serif; font-size: clamp(40px, 6vw, 68px); color: var(--black); letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 32px; }
-.page-intro { font-size: 18px; color: rgba(0,0,0,0.5); line-height: 1.7; max-width: 620px; margin-bottom: 64px; border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 64px; }
-.content-section { margin-bottom: 56px; }
-.content-section h2 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--black); letter-spacing: -0.4px; margin-bottom: 16px; }
-.content-section h3 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; margin-top: 24px; }
-.content-section p { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.8; margin-bottom: 14px; }
-.content-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0 14px 0; }
-.content-section ul li { font-size: 15px; color: rgba(0,0,0,0.55); line-height: 1.7; padding-left: 20px; position: relative; }
-.content-section ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
-.principle-list { display: flex; flex-direction: column; gap: 48px; margin-top: 8px; }
-.principle-item { display: grid; grid-template-columns: 40px 1fr; gap: 24px; align-items: start; }
-.principle-num { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: rgba(0,0,0,0.18); padding-top: 5px; text-transform: uppercase; }
-.principle-item h3 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--black); margin-bottom: 10px; margin-top: 0; letter-spacing: -0.3px; font-weight: 400; }
-.principle-item p { font-size: 15px; color: rgba(0,0,0,0.48); line-height: 1.75; margin: 0; }
-.site-footer { background: var(--black); color: #fff; border-radius: 24px; margin: 16px; padding: 36px 52px; display: flex; align-items: center; justify-content: space-between; }
-.footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: rgba(255,255,255,0.35); }
-.footer-legal { font-size: 13px; color: rgba(255,255,255,0.3); display: flex; gap: 24px; flex-wrap: wrap; }
-.footer-legal a { color: inherit; text-decoration: none; transition: color 200ms ease; }
-.footer-legal a:hover { color: rgba(255,255,255,0.7); }
-.fade-up { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
-.js-animate .fade-up { opacity: 0; transform: translateY(24px); }
-.fade-up.visible { opacity: 1; transform: none; }
-.fade-up:nth-child(2) { transition-delay: 80ms; }
-.fade-up:nth-child(3) { transition-delay: 160ms; }
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .page-wrap { padding: 96px 24px 72px; }
-  .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; margin: 8px; border-radius: 18px; }
-  .principle-item { grid-template-columns: 1fr; gap: 8px; }
-  .principle-num { display: none; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav id="nav" class="light">
-  <a href="index.html" class="nav-logo">
-    <span>Forge</span>
-  </a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" class="download-btn" target="_blank" rel="noopener">Download App</a></li>
-  </ul>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="about.html">About</a>
-  <a href="index.html#pricing">Pricing</a>
-  <a href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">Download App</a>
-</div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="Forge home"><span class="brand-mark" aria-hidden="true"></span>Forge</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="nav-cta" href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Get Forge</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile">
+    <a href="index.html#how">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a class="btn-store small" href="https://apps.apple.com/gb/app/forge-discipline-habit/id6761849586" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="btn-store-text"><small>Download on the</small><strong>App Store</strong></span>
+    </a>
+  </nav>
+</header>
 
 <main>
-  <div class="page-wrap">
-    <div class="page-eyebrow fade-up">Legal</div>
-    <h1 class="page-title fade-up">Terms of Service</h1>
-    <p class="page-intro fade-up">These Terms of Service govern your use of the Forge mobile application, operated by Cecil Dube, an independent developer trading as Forge. By downloading or using Forge, you agree to these Terms. Effective date: 27 February 2026.</p>
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag">Legal</span>
+    <h1 class="h2">Terms of Service</h1>
+    <p class="lede">These Terms of Service govern your use of the Forge mobile application, operated by Cecil Dube, an independent developer trading as Forge. By downloading or using Forge, you agree to these Terms. Effective date: 27 February 2026.</p>
+  </div>
+</section>
 
-<div class="content-section fade-up">
-  <h2>1. Acceptance of Terms</h2>
+<section class="wrap legal">
+  <aside class="legal-toc" aria-label="Contents">
+    <span class="tag">Contents</span>
+    <ol>
+        <li><a href="#1-acceptance-of-terms">1. Acceptance of Terms</a></li>
+        <li><a href="#2-description-of-service">2. Description of Service</a></li>
+        <li><a href="#3-eligibility">3. Eligibility</a></li>
+        <li><a href="#4-user-data-and-device-responsibility">4. User Data and Device Responsibility</a></li>
+        <li><a href="#5-subscriptions-and-payments">5. Subscriptions and Payments</a></li>
+        <li><a href="#6-apple-licensed-application-terms">6. Apple Licensed Application Terms</a></li>
+        <li><a href="#7-acceptable-use">7. Acceptable Use</a></li>
+        <li><a href="#8-healthkit-data-use">8. HealthKit Data Use</a></li>
+        <li><a href="#9-notifications">9. Notifications</a></li>
+        <li><a href="#10-intellectual-property">10. Intellectual Property</a></li>
+        <li><a href="#11-disclaimers">11. Disclaimers</a></li>
+        <li><a href="#12-limitation-of-liability">12. Limitation of Liability</a></li>
+        <li><a href="#13-indemnification">13. Indemnification</a></li>
+        <li><a href="#14-termination">14. Termination</a></li>
+        <li><a href="#15-governing-law-and-dispute-resolution">15. Governing Law and Dispute Resolution</a></li>
+        <li><a href="#16-changes-to-terms">16. Changes to Terms</a></li>
+        <li><a href="#17-contact">17. Contact</a></li>
+    </ol>
+  </aside>
+  <article class="prose">
+<div class="content-section">
+  <h2 id="1-acceptance-of-terms">1. Acceptance of Terms</h2>
   <p>By downloading, installing, or using Forge, you agree to be bound by these Terms of Service. If you do not agree, do not use the Service. You must be of the legal age required to enter into a binding agreement in your jurisdiction, or have the consent of a parent or legal guardian.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>2. Description of Service</h2>
+<div class="content-section">
+  <h2 id="2-description-of-service">2. Description of Service</h2>
   <p>Forge is a personal discipline and habit tracking application for iOS. The Service is organised into four main sections — Dashboard, Workout, Habits, and Analytics — and provides:</p>
   <ul>
     <li>Habit logging for both good and bad habits, with multiple tracking styles (simple, count, duration, and quality).</li>
@@ -145,19 +90,19 @@ nav {
   <p>The Service is for informational and self-development purposes only. It does not provide medical, psychological, or professional advice.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>3. Eligibility</h2>
+<div class="content-section">
+  <h2 id="3-eligibility">3. Eligibility</h2>
   <p>You must be at least 13 years old (or the minimum age at which you can legally consent to use digital services in your jurisdiction) to use the Service.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>4. User Data and Device Responsibility</h2>
+<div class="content-section">
+  <h2 id="4-user-data-and-device-responsibility">4. User Data and Device Responsibility</h2>
   <p>Forge does not require account creation. All of your behavioural data is stored locally on your device, as described in our Privacy Policy.</p>
   <p>Because there is no cloud backup or sync, you are responsible for the security of your device and for any data loss caused by device loss, damage, or replacement. A full data export is available at any time from Settings → Export Data, but only you can initiate it.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>5. Subscriptions and Payments</h2>
+<div class="content-section">
+  <h2 id="5-subscriptions-and-payments">5. Subscriptions and Payments</h2>
 
   <h3>A. Premium Subscription Tiers</h3>
   <p>Forge offers three premium subscription tiers with the following product identifiers:</p>
@@ -181,13 +126,13 @@ nav {
   <p>All refunds are handled by Apple under the App Store refund policy. The developer does not process payments or refunds directly and cannot issue refunds on Apple's behalf.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>6. Apple Licensed Application Terms</h2>
+<div class="content-section">
+  <h2 id="6-apple-licensed-application-terms">6. Apple Licensed Application Terms</h2>
   <p>This agreement is between you and Cecil Dube, not Apple. Apple is not responsible for the Service or its content. Apple has no obligation to provide maintenance or support for the Service. Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>7. Acceptable Use</h2>
+<div class="content-section">
+  <h2 id="7-acceptable-use">7. Acceptable Use</h2>
   <p>The Service is provided for personal, non-commercial use. You agree not to:</p>
   <ul>
     <li>Use the Service for any unlawful purpose.</li>
@@ -199,8 +144,8 @@ nav {
   </ul>
 </div>
 
-<div class="content-section fade-up">
-  <h2>8. HealthKit Data Use</h2>
+<div class="content-section">
+  <h2 id="8-healthkit-data-use">8. HealthKit Data Use</h2>
   <p>If you grant Forge access to Apple HealthKit, step count data is used solely to calculate discipline scores and activity analytics on your device. In accordance with Apple's HealthKit policy:</p>
   <ul>
     <li>HealthKit data is never shared with third parties.</li>
@@ -210,19 +155,19 @@ nav {
   <p>You can revoke HealthKit access at any time via iOS Settings → Health → Data Access &amp; Devices → Forge.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>9. Notifications</h2>
+<div class="content-section">
+  <h2 id="9-notifications">9. Notifications</h2>
   <p>Forge schedules local notifications only — there is no remote notification server. The app supports up to 17 notification types (7 available on the free tier, 10 additional with premium), covering reminders, streak alerts, mood reports, exercise prompts, and behavioural insights. Notification content is derived from your own data, generated on your device. You can disable notifications at any time via iOS Settings → Notifications → Forge.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>10. Intellectual Property</h2>
+<div class="content-section">
+  <h2 id="10-intellectual-property">10. Intellectual Property</h2>
   <p>All content, branding, design, source code, scoring systems, analytics algorithms, curated Stoic quotations, and related assets — including the "Forge" name and app icon — are the property of Cecil Dube and are protected by applicable intellectual property laws.</p>
   <p>You are granted a limited, non-transferable, non-exclusive licence to use the Service for personal, non-commercial purposes. The data you create within the app (your habits, logs, moods, and workouts) remains yours.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>11. Disclaimers</h2>
+<div class="content-section">
+  <h2 id="11-disclaimers">11. Disclaimers</h2>
 
   <h3>A. Not Medical or Professional Advice</h3>
   <p>The Service is not a substitute for professional medical, psychological, or fitness advice, diagnosis, or treatment. Discipline scores, mood tracking, and behavioural insights are intended for personal reflection only. Workout logging does not replace professional coaching or training guidance. Consult a qualified healthcare professional before starting any exercise programme or making decisions related to your health.</p>
@@ -237,85 +182,54 @@ nav {
   <p>The Service is provided "as is" and "as available," without warranties of any kind, either express or implied, to the maximum extent permitted by law.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>12. Limitation of Liability</h2>
+<div class="content-section">
+  <h2 id="12-limitation-of-liability">12. Limitation of Liability</h2>
   <p>To the maximum extent permitted by applicable law, Cecil Dube shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to data loss, device issues, or decisions made based on insights produced by the Service.</p>
   <p>Our total aggregate liability for any claim arising from or related to these Terms or the Service shall not exceed the amount you paid for the subscription in the twelve (12) months preceding the claim.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>13. Indemnification</h2>
+<div class="content-section">
+  <h2 id="13-indemnification">13. Indemnification</h2>
   <p>You agree to indemnify and hold harmless Cecil Dube from any claims, damages, liabilities, or expenses arising from your misuse of the Service or breach of these Terms.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>14. Termination</h2>
+<div class="content-section">
+  <h2 id="14-termination">14. Termination</h2>
   <p>We may suspend or terminate your access to the Service if you violate these Terms. You may stop using the Service at any time by uninstalling the app. Cancelling a subscription does not delete the locally stored data on your device; that data remains until you remove individual entries or uninstall the app.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>15. Governing Law and Dispute Resolution</h2>
+<div class="content-section">
+  <h2 id="15-governing-law-and-dispute-resolution">15. Governing Law and Dispute Resolution</h2>
   <p>These Terms are governed by the laws of England and Wales. Any disputes arising from or related to these Terms or the Service shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>16. Changes to Terms</h2>
+<div class="content-section">
+  <h2 id="16-changes-to-terms">16. Changes to Terms</h2>
   <p>We may update these Terms from time to time. Material changes will be communicated through an app update or an in-app notice, and the effective date above will be updated accordingly. Continued use of the Service after an update constitutes acceptance of the revised Terms.</p>
 </div>
 
-<div class="content-section fade-up">
-  <h2>17. Contact</h2>
+<div class="content-section">
+  <h2 id="17-contact">17. Contact</h2>
   <p>For questions regarding these Terms, contact us at <a href="mailto:4beeshealth@gmail.com" style="color:var(--green);text-decoration:none;font-weight:500">4beeshealth@gmail.com</a>.</p>
 </div>
-
-  </div>
+  </article>
+</section>
 </main>
 
-<div style="height:64px"></div>
-<footer class="site-footer">
-  <div class="footer-brand">Forge</div>
-  <div class="footer-legal">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="#">Contact</a>
-    <span>© 2025 Forge Inc.</span>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span>Forge</a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="mailto:4beeshealth@gmail.com">Contact</a></li>
+    </ul>
+    <span>© 2026 Forge</span>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-const nav = document.getElementById('nav');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-function updateNav() {
-  nav.className = 'light';
-}
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav();
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-document.querySelectorAll('.mobile-menu a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
-document.body.classList.add("js-animate");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+<script src="site.js"></script>
 </body>
 </html>
